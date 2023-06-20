@@ -1,0 +1,89 @@
+title: Poohtini -- poohbot.com + blogtini.com
+user: traceypooh
+repo: poohtini
+git_provider: github # github or gitlab
+img_site: img/traceymonet-half.jpg
+posts_per_page: 10
+remove_blur: true
+
+intro:
+  rss: true
+  social: true
+  paragraph: "Technophile · Optimist · <a href=/biking>Cyclist</a> · <a href=https://archive.org/about/bios.php>Archivist</a> · Design · <a href=/video>Video</a> · TV · Nomad · Docker"
+
+menu:
+  # Sets the menu items in the navigation bar
+  # Identifier prepends a Font Awesome icon to the menu item
+  main:
+    - name:              Home
+      identifier:        home
+      url:               /
+      pre:               <i class='fa fa-home'></i>
+      weight:            1
+
+    - name:              About
+      identifier:        about
+      url:               /about/
+      pre:               <i class='far fa-id-card'></i>
+      weight:            2
+
+    - name:              Categories
+      identifier:        categories
+      url:               /categories/
+      pre:               <i class='fas fa-sitemap'></i>
+      weight:            3
+
+    - name:              Favorites
+      identifier:        favorites
+      url:               /favorites/
+      pre:               <i class='far fa-star'></i>
+      weight:            4
+
+    - name:              Quotes
+      identifier:        quotes
+      url:               /quotes/
+      pre:               <i class='fa fa-quote-left'></i>
+      weight:            5
+
+    - name:              Contact
+      identifier:        contact
+      url:               /contact/
+      pre:               <i class='far fa-envelope'></i>
+      weight:            6
+
+
+sidebar:
+  about: tracey is a nonstop dance party.  so you dont have to.  dont ask me about <a href=/2019-08-meesa-3-k8s-annie/>containers</a>.  thanks for dropping by today.  you look nice.
+  post_amount: 5
+  # set to show or to hide categories in the sidebar
+  categories: true
+  # Sets Categories to sort by number of posts instead of alphabetical
+  categories_by_count: true
+
+footer:
+  rss: true
+  social: true
+
+social:
+  rss: index.xml
+  twitter: tracey_pooh
+  youtube: '@traceypooh'
+  linkedin: tracey-jaquith-929432
+  pinterest: poohbot
+  github: traceypooh
+  gitlab: traceypooh
+  codepen: traceypooh
+  stackoverflow: 11941875 # User Number
+  flickr: 46222920@N05
+  tumblr: traceypooh
+  strava: traceypooh
+  mastodon: 'mastodon.social/@traceypooh'
+
+social_share: ['twitter', 'facebook', 'pinterest', 'email', 'linkedin', 'reddit']
+
+staticman:
+  # If using GitHub, go to https://github.com/apps/staticman-net
+  # If using GitLab, just add the GitLab bot, NO need to hit `/connect/v3/...`
+  enabled:  true
+  api:      traceypooh-staticman.dev.archive.org  # without trailing slash, defaults to 'staticman3.herokuapp.com'
+  branch:   main
