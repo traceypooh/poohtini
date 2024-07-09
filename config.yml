@@ -2,6 +2,8 @@ title: Poohtini -- poohbot.com + blogtini.com
 user: traceypooh
 repo: poohtini
 git_provider: github # github or gitlab
+# deployed live site (required).  end with /
+site_url: https://traceypooh.github.io/poohtini/
 img_site: img/traceymonet-half.jpg
 posts_per_page: 10
 remove_blur: true
