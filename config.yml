@@ -31,7 +31,7 @@ menu:
 
     - name:              Categories
       identifier:        categories
-      url:               /categories/
+      url:               /?categories
       pre:               <i class='fas fa-sitemap'></i>
       weight:            3
 
