@@ -39,9 +39,6 @@ comments:
   # Otherwise, entries will be published to the main branch automatically.
   moderation: true
 
-  # Name of the site. Used in notification emails.
-  name: "traceypooh.github.io"
-
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
