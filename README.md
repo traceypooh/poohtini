@@ -1,2 +1,2 @@
 # poohtini
-blogtini.com version of poohbot.com (my personal website)
+blogtini.com version of traceypooh.com (my personal website)

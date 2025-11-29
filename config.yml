@@ -1,4 +1,4 @@
-title: Poohtini -- poohbot.com + blogtini.com
+title: Poohtini -- traceypooh.com + blogtini.com
 user: traceypooh
 repo: poohtini
 git_provider: github # github or gitlab
@@ -88,4 +88,3 @@ staticman:
   enabled:  true
   api:      blogtini.netlify.app
   branch:   main
-  
