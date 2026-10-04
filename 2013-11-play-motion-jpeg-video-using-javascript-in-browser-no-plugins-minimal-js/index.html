@@ -40,13 +40,15 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
 </style>
 
 <div id="bodydiv">
-  <input type="button" value="test image" onclick="MJ.test_img('/img/traceymonet.jpg')"/>
-  <input type="button" value="motion jpeg avi (short, 3.5MB)"
-    onclick="MJ.mjpeg(-1, 'https://archive.org/cors/stairs/stairs.avi', 20); delete MJ.fi; MJ.fi=0"
-  />
-  <input type="button" value="motion jpeg avi (34 seconds, 55MB)"
-    onclick="MJ.mjpeg(-1, 'https://archive.org/cors/bikeDiablo-alt/bikeDiablo-alt.avi', 30); delete MJ.fi; MJ.fi=0"
-  />
+  <button data-mj-src="/img/traceymonet.jpg">test image</button>
+  <button data-mj-avi="https://archive.org/cors/stairs/stairs.avi"
+    data-mj-fps="20">motion jpeg avi (short, 3.5MB)</button>
+  <button data-mj-avi="https://archive.org/cors/bikeDiablo-alt/bikeDiablo-alt.avi"
+    data-mj-fps="30">motion jpeg avi (34 seconds, 55MB)</button>
+  <!-- uncomment examples for test extractions
+  <button data-mj-avi="/MVI_3553.AVI" data-mj-fps="20">motion jpeg avi</button>
+  <button data-mj-avi="/MVI_3569.AVI" data-mj-fps="20">motion jpeg avi</button>
+  -->
 
   <div id="map">
     <div style="padding: 30px 0 0 50px; font-size: 2em">
@@ -55,6 +57,14 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
       <span class="fas fa-hand-point-up"></span>
     </div>
     <noscript>Any app that can be written in JavaScript, will eventually be written in JavaScript.<br/>- Jeff Atwood<br/><b><i>enable thy javascript</i></b></noscript>
+  </div>
+  <div id="mj-controls" hidden>
+    <button data-mj-step="-fps">[&lt;&lt;]</button>
+    <button data-mj-step="-1">[&lt;]</button>
+    <button id="mj-stop">[&#9632;]</button>
+    <button data-mj-step="1">[&gt;]</button>
+    <button data-mj-step="fps">[&gt;&gt;]</button>
+    <button id="mj-save">[save frame]</button>
   </div>
   <div>
     Huh?
@@ -77,12 +87,12 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
       <small>(probably not happy w/ missing huffman compression tables in img headers)</small>
       <ul>
         <li>safari/iOS</li>
-        <li>MS IE</li>
       </ul>
     <hr/>
     <small>
-      Originally created 2006 by Tracey Jaquith.
-      minor updates to jQuery and simplifying 2013
+      2006: Originally created by Tracey Jaquith.
+      2013: minor updates to jQuery and simplifying.
+      2026: add playback buttons and save full frame JPG, to ES module, dump jQuery, lints nicely.
     </small>
   </div>
 
@@ -90,6 +100,4 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
   <textarea id="src"></textarea>
 </div>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/motion-jpeg.js"></script>
-<script src="/js/motion-jpeg-source.js"></script>
+<script type="module" src="/js/motion-jpeg.js"></script>

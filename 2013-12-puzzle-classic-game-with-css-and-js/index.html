@@ -2,7 +2,7 @@
 title: Puzzle classic game with CSS and JS
 date: 2013-12-12
 type: post
-featured: https://traceypooh.com/albums/images/2007_10_14%20key%20west/keyWest_0136_tj.jpg
+featured: ../albums/images/2007_10_14%20key%20west/keyWest_0136_tj.jpg
 categories:
   - technical
   - coding
@@ -17,8 +17,8 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
 <style>
 #pieces {
   list-style-type: none;
-  width: 90%;
   margin: 50px auto;
+  padding: 0;
 }
 #pieces li {
   float: left;
@@ -26,7 +26,7 @@ comment: <script src="../theme.js" type="module" charset="utf-8"></script>
 </style>
 
 
-## <div onclick="$('#pieces li').shuffle()"> puzzling <span class="fa fa-random"></span> shuffle!</div>
+## <div id="shuffle"> puzzling <span class="fa fa-random"></span> shuffle!</div>
 
 Hit the <span class="fa fa-random"></span> shuffle button to scramble the picture.
 You can drag the pieces around to get it back together - like the classic game.
@@ -38,6 +38,4 @@ _* this cute picture is us driving in Key West (a Chrysler 300 rental)_
 <ul id="pieces">
 </ul>
 
-
-<script defer src="https://archive.org/includes/build/npm/jquery-ui.min.js?v1.12.1"></script>
-<script defer src="/js/puzzle.js"></script>
+<script src="/js/puzzle.js" type="module"></script>

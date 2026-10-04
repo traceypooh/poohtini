@@ -8,7 +8,7 @@ cd $mydir/../
 POOH=$HOME/poohbot
 
 # import posts
-for FILE in $(cd $POOH; ls */index.html */*/index.html |tac); do
+for FILE in $(cd $POOH; ls */index.html */*/index.html |tac |grep -Ev ^public/); do
   DIR=$(dirname "$FILE")
   echo     $DIR
   mkdir -p $DIR
@@ -25,4 +25,4 @@ rsync -Pav $POOH/img/ img/
 # import comments
 rsync -Pav $POOH/comments/ comments/
 # add/update `index.json` files
-$HOME/d/blogtini/bin/comments
+$HOME/d/blogtini/bin/build comments
