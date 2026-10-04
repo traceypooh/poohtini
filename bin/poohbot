@@ -19,8 +19,10 @@ for FILE in $(cd $POOH; ls */index.html */*/index.html |tac |grep -Ev ^public/);
   ) >| $DIR/index.html
 done
 
-# import imagery
+# import imagery, etc.
 rsync -Pav $POOH/img/ img/
+rsync -Pav $POOH/js/ js/
+rsync -Pav $POOH/css/ css/
 
 # import comments
 rsync -Pav $POOH/comments/ comments/
