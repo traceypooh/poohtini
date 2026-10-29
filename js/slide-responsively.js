@@ -7,22 +7,30 @@
   https://github.com/traceypooh/slide-responsively
 ************************************************************* */
 
-let retries_slide = 1
+
+/**
+ * Returns every element matching a css selector -- in the page *and* inside shadow DOM (eg: future-imperfect).
+ * So a page's scripts can find their elements in any theme.
+ *
+ * @param {string} selector
+ * @returns {Element[]}
+ */
+function query_all(selector, root = document) {
+  const ret = [...root.querySelectorAll(selector)]
+  for (const e of root.querySelectorAll('*')) {
+    if (e.shadowRoot)
+      ret.push(...query_all(selector, e.shadowRoot))
+  }
+  return ret
+}
+
 
 const main = () => {
   // If using blogtini.com, we have to find this through a shadow dom.
   // NOTE: wheh blogtin & shadowDOM is involved, 1st or 2nd run of this might be empty list OR
   // elements that still are "settling" and 1st round of `addEventListeners()` get reset as the
   // elements repaint/re-render.  So we'll run this a few times to ensure listeners get attached.
-  const els = document.querySelector('bt-post-full')?.shadowRoot?.querySelectorAll('.slide-responsively li') ||
-    document.querySelectorAll('.slide-responsively li')
-
-  // eslint-disable-next-line no-console
-  console.log({ retries_slide, els })
-
-  // eslint-disable-next-line no-plusplus
-  if (retries_slide++ <= 3)
-    setTimeout(main, 1000 * retries_slide)
+  const els = query_all('.slide-responsively li')
 
   els.forEach((li) => {
     // eslint-disable-next-line prefer-arrow-callback
@@ -41,4 +49,8 @@ const main = () => {
   })
 }
 
-document.addEventListener('DOMContentLoaded', main)
+
+await new Promise((resolve) => (document.documentElement.hasAttribute('data-blogtini-rendered')
+  ? resolve()
+  : document.addEventListener('data-blogtini-rendered', resolve, { once: true })))
+main()

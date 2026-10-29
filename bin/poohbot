@@ -28,3 +28,5 @@ rsync -Pav $POOH/css/ css/
 rsync -Pav $POOH/comments/ comments/
 # add/update `index.json` files
 $HOME/d/blogtini/bin/build comments
+
+echo 'change the bottom lines in photos.js and slide-responsively.js'

@@ -525,4 +525,7 @@ ${
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => new Pooh())
+await new Promise((resolve) => (document.documentElement.hasAttribute('data-blogtini-rendered')
+  ? resolve()
+  : document.addEventListener('data-blogtini-rendered', resolve, { once: true })))
+new Pooh()
